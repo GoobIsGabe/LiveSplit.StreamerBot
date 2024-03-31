@@ -10,6 +10,9 @@ using LiveSplit.Options;
 using System.Net.WebSockets;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LiveSplit.UI.Components
 {
@@ -52,14 +55,43 @@ namespace LiveSplit.UI.Components
                 await webSocket.ConnectAsync(uri, CancellationToken.None);
                 MessageBox.Show("WebSocket connected to :\n" + "ws://" + ws + ":" + port + "/");
 
-                // Listen for messages
-               // await Receive(webSocket);
+                // Request actions
+                string requestJson = "{\"request\": \"GetActions\", \"id\": \"my-get-actions-id\"}";
+                byte[] requestBuffer = Encoding.UTF8.GetBytes(requestJson);
+                await webSocket.SendAsync(new ArraySegment<byte>(requestBuffer), WebSocketMessageType.Text, true, CancellationToken.None);
 
-                // Send messages (if needed)
-                // await Send(webSocket, "Hello, server!");
+                // Receive the response
+                List<byte> responseBytes = new List<byte>();
+                WebSocketReceiveResult result;
+                do
+                {
+                    byte[] buffer = new byte[8192];
+                    result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+                    responseBytes.AddRange(buffer.Take(result.Count));
+                }
+                while (!result.EndOfMessage);
+
+                // Convert the received bytes to a string
+                string responseJson = Encoding.UTF8.GetString(responseBytes.ToArray());
+
+                // Parse the JSON response
+                JObject responseObject = JObject.Parse(responseJson);
+
+                // Extract actions from the response
+                JArray actionsArray = (JArray)responseObject["actions"];
+                List<string> actionsList = new List<string>();
+                foreach (JToken actionToken in actionsArray)
+                {
+                    string actionName = (string)actionToken["name"];
+                    actionsList.Add(actionName);
+                }
+
+                // Populate the combo box with actions
+                cbActions.Items.Clear();
+                cbActions.Items.AddRange(actionsList.ToArray());
 
                 // Close the connection
-               // await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Connection closed by client", CancellationToken.None);
+                await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Connection closed by client", CancellationToken.None);
             }
             catch (Exception ex)
             {

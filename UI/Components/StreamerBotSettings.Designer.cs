@@ -34,7 +34,10 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.lblPort = new System.Windows.Forms.Label();
             this.txtPort = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbActions = new System.Windows.Forms.ComboBox();
             this.topLevelLayoutPanel.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // topLevelLayoutPanel
@@ -71,9 +74,9 @@
             // txtServer
             // 
             this.txtServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtServer.Location = new System.Drawing.Point(119, 5);
+            this.txtServer.Location = new System.Drawing.Point(118, 5);
             this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(264, 20);
+            this.txtServer.Size = new System.Drawing.Size(265, 20);
             this.txtServer.TabIndex = 1;
             // 
             // btnConnect
@@ -100,22 +103,42 @@
             // txtPort
             // 
             this.txtPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPort.Location = new System.Drawing.Point(119, 35);
+            this.txtPort.Location = new System.Drawing.Point(118, 35);
             this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(264, 20);
+            this.txtPort.Size = new System.Drawing.Size(265, 20);
             this.txtPort.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbActions);
+            this.groupBox1.Location = new System.Drawing.Point(3, 137);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(383, 124);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Streamer.Bot Actions";
+            // 
+            // cbActions
+            // 
+            this.cbActions.FormattingEnabled = true;
+            this.cbActions.Location = new System.Drawing.Point(6, 33);
+            this.cbActions.Name = "cbActions";
+            this.cbActions.Size = new System.Drawing.Size(121, 21);
+            this.cbActions.TabIndex = 0;
             // 
             // StreamerBotSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.topLevelLayoutPanel);
             this.Name = "StreamerBotSettings";
             this.Size = new System.Drawing.Size(392, 269);
             this.Load += new System.EventHandler(this.StreamerBotSettings_Load);
             this.topLevelLayoutPanel.ResumeLayout(false);
             this.topLevelLayoutPanel.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +152,7 @@
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Label lblPort;
         private System.Windows.Forms.TextBox txtPort;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbActions;
     }
 }
