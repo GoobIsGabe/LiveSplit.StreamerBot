@@ -36,8 +36,11 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbActions = new System.Windows.Forms.ComboBox();
+            this.grpCurrentSplit = new System.Windows.Forms.GroupBox();
+            this.btnAddCurrentSplit = new System.Windows.Forms.Button();
             this.topLevelLayoutPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.grpCurrentSplit.SuspendLayout();
             this.SuspendLayout();
             // 
             // topLevelLayoutPanel
@@ -57,24 +60,24 @@
             this.topLevelLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.topLevelLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.topLevelLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.topLevelLayoutPanel.Size = new System.Drawing.Size(386, 128);
+            this.topLevelLayoutPanel.Size = new System.Drawing.Size(387, 128);
             this.topLevelLayoutPanel.TabIndex = 0;
-            this.topLevelLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // lblSBServer
             // 
-            this.lblSBServer.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblSBServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSBServer.AutoSize = true;
             this.lblSBServer.Location = new System.Drawing.Point(3, 8);
             this.lblSBServer.Name = "lblSBServer";
-            this.lblSBServer.Size = new System.Drawing.Size(102, 13);
+            this.lblSBServer.Size = new System.Drawing.Size(110, 13);
             this.lblSBServer.TabIndex = 0;
             this.lblSBServer.Text = "Streamer.Bot Server";
+            this.lblSBServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtServer
             // 
             this.txtServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtServer.Location = new System.Drawing.Point(118, 5);
+            this.txtServer.Location = new System.Drawing.Point(119, 5);
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(265, 20);
             this.txtServer.TabIndex = 1;
@@ -92,18 +95,19 @@
             // 
             // lblPort
             // 
-            this.lblPort.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPort.AutoSize = true;
             this.lblPort.Location = new System.Drawing.Point(3, 38);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(90, 13);
+            this.lblPort.Size = new System.Drawing.Size(110, 13);
             this.lblPort.TabIndex = 3;
             this.lblPort.Text = "Streamer.Bot Port";
+            this.lblPort.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPort
             // 
             this.txtPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPort.Location = new System.Drawing.Point(118, 35);
+            this.txtPort.Location = new System.Drawing.Point(119, 35);
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(265, 20);
             this.txtPort.TabIndex = 4;
@@ -113,7 +117,7 @@
             this.groupBox1.Controls.Add(this.cbActions);
             this.groupBox1.Location = new System.Drawing.Point(3, 137);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(383, 124);
+            this.groupBox1.Size = new System.Drawing.Size(383, 81);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Streamer.Bot Actions";
@@ -123,22 +127,44 @@
             this.cbActions.FormattingEnabled = true;
             this.cbActions.Location = new System.Drawing.Point(6, 33);
             this.cbActions.Name = "cbActions";
-            this.cbActions.Size = new System.Drawing.Size(121, 21);
+            this.cbActions.Size = new System.Drawing.Size(228, 21);
             this.cbActions.TabIndex = 0;
+            // 
+            // grpCurrentSplit
+            // 
+            this.grpCurrentSplit.Controls.Add(this.btnAddCurrentSplit);
+            this.grpCurrentSplit.Location = new System.Drawing.Point(3, 237);
+            this.grpCurrentSplit.Name = "grpCurrentSplit";
+            this.grpCurrentSplit.Size = new System.Drawing.Size(383, 57);
+            this.grpCurrentSplit.TabIndex = 1;
+            this.grpCurrentSplit.TabStop = false;
+            this.grpCurrentSplit.Text = "On Current Split";
+            // 
+            // btnAddCurrentSplit
+            // 
+            this.btnAddCurrentSplit.Location = new System.Drawing.Point(302, 21);
+            this.btnAddCurrentSplit.Name = "btnAddCurrentSplit";
+            this.btnAddCurrentSplit.Size = new System.Drawing.Size(75, 23);
+            this.btnAddCurrentSplit.TabIndex = 0;
+            this.btnAddCurrentSplit.Text = "Add";
+            this.btnAddCurrentSplit.UseVisualStyleBackColor = true;
+            this.btnAddCurrentSplit.Click += new System.EventHandler(this.btnAddCurrentSplit_Click);
             // 
             // StreamerBotSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.grpCurrentSplit);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.topLevelLayoutPanel);
             this.Name = "StreamerBotSettings";
-            this.Size = new System.Drawing.Size(392, 269);
+            this.Size = new System.Drawing.Size(393, 409);
             this.Load += new System.EventHandler(this.StreamerBotSettings_Load);
             this.topLevelLayoutPanel.ResumeLayout(false);
             this.topLevelLayoutPanel.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.grpCurrentSplit.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +180,7 @@
         private System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbActions;
+        private System.Windows.Forms.GroupBox grpCurrentSplit;
+        private System.Windows.Forms.Button btnAddCurrentSplit;
     }
 }
