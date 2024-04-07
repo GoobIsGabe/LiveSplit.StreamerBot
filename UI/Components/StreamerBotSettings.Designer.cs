@@ -38,9 +38,19 @@
             this.cbActions = new System.Windows.Forms.ComboBox();
             this.grpCurrentSplit = new System.Windows.Forms.GroupBox();
             this.btnAddCurrentSplit = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tbStart = new System.Windows.Forms.TabPage();
+            this.tbSplitName = new System.Windows.Forms.TabPage();
+            this.tbReset = new System.Windows.Forms.TabPage();
+            this.tbGold = new System.Windows.Forms.TabPage();
+            this.tbAhead = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbBehind = new System.Windows.Forms.TabPage();
             this.topLevelLayoutPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grpCurrentSplit.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tbSplitName.SuspendLayout();
             this.SuspendLayout();
             // 
             // topLevelLayoutPanel
@@ -133,16 +143,16 @@
             // grpCurrentSplit
             // 
             this.grpCurrentSplit.Controls.Add(this.btnAddCurrentSplit);
-            this.grpCurrentSplit.Location = new System.Drawing.Point(3, 237);
+            this.grpCurrentSplit.Location = new System.Drawing.Point(6, 25);
             this.grpCurrentSplit.Name = "grpCurrentSplit";
-            this.grpCurrentSplit.Size = new System.Drawing.Size(383, 57);
+            this.grpCurrentSplit.Size = new System.Drawing.Size(333, 57);
             this.grpCurrentSplit.TabIndex = 1;
             this.grpCurrentSplit.TabStop = false;
             this.grpCurrentSplit.Text = "On Current Split";
             // 
             // btnAddCurrentSplit
             // 
-            this.btnAddCurrentSplit.Location = new System.Drawing.Point(302, 21);
+            this.btnAddCurrentSplit.Location = new System.Drawing.Point(237, 19);
             this.btnAddCurrentSplit.Name = "btnAddCurrentSplit";
             this.btnAddCurrentSplit.Size = new System.Drawing.Size(75, 23);
             this.btnAddCurrentSplit.TabIndex = 0;
@@ -150,21 +160,109 @@
             this.btnAddCurrentSplit.UseVisualStyleBackColor = true;
             this.btnAddCurrentSplit.Click += new System.EventHandler(this.btnAddCurrentSplit_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tbStart);
+            this.tabControl1.Controls.Add(this.tbReset);
+            this.tabControl1.Controls.Add(this.tbSplitName);
+            this.tabControl1.Controls.Add(this.tbGold);
+            this.tabControl1.Controls.Add(this.tbAhead);
+            this.tabControl1.Controls.Add(this.tbBehind);
+            this.tabControl1.Location = new System.Drawing.Point(5, 244);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(371, 290);
+            this.tabControl1.TabIndex = 3;
+            // 
+            // tbStart
+            // 
+            this.tbStart.Location = new System.Drawing.Point(4, 22);
+            this.tbStart.Name = "tbStart";
+            this.tbStart.Padding = new System.Windows.Forms.Padding(3);
+            this.tbStart.Size = new System.Drawing.Size(363, 264);
+            this.tbStart.TabIndex = 1;
+            this.tbStart.Text = "Start";
+            this.tbStart.UseVisualStyleBackColor = true;
+            // 
+            // tbSplitName
+            // 
+            this.tbSplitName.AutoScroll = true;
+            this.tbSplitName.Controls.Add(this.grpCurrentSplit);
+            this.tbSplitName.Location = new System.Drawing.Point(4, 22);
+            this.tbSplitName.Name = "tbSplitName";
+            this.tbSplitName.Padding = new System.Windows.Forms.Padding(3);
+            this.tbSplitName.Size = new System.Drawing.Size(363, 264);
+            this.tbSplitName.TabIndex = 0;
+            this.tbSplitName.Text = "Split Name";
+            this.tbSplitName.UseVisualStyleBackColor = true;
+            // 
+            // tbReset
+            // 
+            this.tbReset.Location = new System.Drawing.Point(4, 22);
+            this.tbReset.Name = "tbReset";
+            this.tbReset.Padding = new System.Windows.Forms.Padding(3);
+            this.tbReset.Size = new System.Drawing.Size(363, 264);
+            this.tbReset.TabIndex = 2;
+            this.tbReset.Text = "Reset";
+            this.tbReset.UseVisualStyleBackColor = true;
+            // 
+            // tbGold
+            // 
+            this.tbGold.Location = new System.Drawing.Point(4, 22);
+            this.tbGold.Name = "tbGold";
+            this.tbGold.Padding = new System.Windows.Forms.Padding(3);
+            this.tbGold.Size = new System.Drawing.Size(363, 264);
+            this.tbGold.TabIndex = 3;
+            this.tbGold.Text = "Gold Split";
+            this.tbGold.UseVisualStyleBackColor = true;
+            // 
+            // tbAhead
+            // 
+            this.tbAhead.Location = new System.Drawing.Point(4, 22);
+            this.tbAhead.Name = "tbAhead";
+            this.tbAhead.Padding = new System.Windows.Forms.Padding(3);
+            this.tbAhead.Size = new System.Drawing.Size(363, 264);
+            this.tbAhead.TabIndex = 4;
+            this.tbAhead.Text = "Ahead";
+            this.tbAhead.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(5, 221);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Perform Action On...";
+            // 
+            // tbBehind
+            // 
+            this.tbBehind.Location = new System.Drawing.Point(4, 22);
+            this.tbBehind.Name = "tbBehind";
+            this.tbBehind.Size = new System.Drawing.Size(363, 264);
+            this.tbBehind.TabIndex = 5;
+            this.tbBehind.Text = "Behind";
+            this.tbBehind.UseVisualStyleBackColor = true;
+            // 
             // StreamerBotSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.grpCurrentSplit);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.topLevelLayoutPanel);
             this.Name = "StreamerBotSettings";
-            this.Size = new System.Drawing.Size(393, 409);
+            this.Size = new System.Drawing.Size(393, 648);
             this.Load += new System.EventHandler(this.StreamerBotSettings_Load);
             this.topLevelLayoutPanel.ResumeLayout(false);
             this.topLevelLayoutPanel.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.grpCurrentSplit.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tbSplitName.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +280,13 @@
         private System.Windows.Forms.ComboBox cbActions;
         private System.Windows.Forms.GroupBox grpCurrentSplit;
         private System.Windows.Forms.Button btnAddCurrentSplit;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tbSplitName;
+        private System.Windows.Forms.TabPage tbStart;
+        private System.Windows.Forms.TabPage tbReset;
+        private System.Windows.Forms.TabPage tbGold;
+        private System.Windows.Forms.TabPage tbAhead;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tbBehind;
     }
 }

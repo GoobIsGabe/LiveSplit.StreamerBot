@@ -137,10 +137,10 @@ namespace LiveSplit.UI.Components
 
         private void btnAddCurrentSplit_Click(object sender, EventArgs e)
         {
-            CreateNewSection();
+            CreateNewSection(grpCurrentSplit);
         }
 
-        private void CreateNewSection()
+        private void CreateNewSection(GroupBox targetGroup)
         {
             //Create a new table layout panel for the section
             TableLayoutPanel tblNewSection = new TableLayoutPanel();
@@ -192,18 +192,31 @@ namespace LiveSplit.UI.Components
 
             //Add the new section to the group box
             tblNewSection.Location = new Point(10, verticalPosition);
-            grpCurrentSplit.Controls.Add(tblNewSection);
-
-            //Increment the section count
+            targetGroup.Controls.Add(tblNewSection);
+            // Increment the section count
             sectionCount++;
 
-            //Adjust the vertical position for the next section
+            // Adjust the vertical position for the next section
             verticalPosition += tblNewSection.Height + 5;
 
-            //Adjust the size of the group box to accommodate the new section
-            grpCurrentSplit.Size = new Size(grpCurrentSplit.Size.Width, grpCurrentSplit.Size.Height + tblNewSection.Height + 5);
-        }
+            // Adjust the positions of the groups below the target group
 
+
+            // Adjust the size of the target group to accommodate the new section
+            targetGroup.Size = new Size(targetGroup.Size.Width, targetGroup.Size.Height + tblNewSection.Height + 5);
+        }
+        private void AdjustPositions(GroupBox targetGroup, TableLayoutPanel addedSection)
+        {
+            int addedIndex = targetGroup.Controls.IndexOf(addedSection);
+            int yPos = addedSection.Bottom + 5;
+
+            for (int i = addedIndex + 1; i < targetGroup.Controls.Count; i++)
+            {
+                Control control = targetGroup.Controls[i];
+                control.Location = new Point(control.Location.X, yPos);
+                yPos += control.Height + 5;
+            }
+        }
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             //Gets the associated section from the Tag property of the remove button
@@ -231,8 +244,9 @@ namespace LiveSplit.UI.Components
             grpCurrentSplit.Size = new Size(grpCurrentSplit.Size.Width, grpCurrentSplit.Size.Height - sectionToRemove.Height - 5);
         }
 
-
-
-
+        private void btnAddStart_Click(object sender, EventArgs e)
+        {
+            //CreateNewSection(grpStartRun);
+        }
     }
 }
